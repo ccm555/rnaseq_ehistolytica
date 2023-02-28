@@ -1,0 +1,49 @@
+sudo yum update
+sudo yum install httpd
+sudo yum install miniconda
+sudo yum install curl
+sudo yum install htop
+wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
+bash Anaconda3-2022.10-Linux-x86_64.sh 
+bash Anaconda3-2022.10-Linux-x86_64.sh 
+source ~/.bashrc
+conda create -n rnaseq
+conda activate rnaseq
+conda install -c bioconda Trimmomatic samtools fastqc hisat2
+conda install -c bioconda stringtie
+conda install -c bioconda ballgown
+sudo amazon-linux-extras install R4
+wget https://download2.rstudio.org/server/centos7/x86_64/rstudio-server-rhel-2022.12.0-353-x86_64.rpm
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
+sudo yum install rstudio-server-rhel-2022.12.0-353-x86_64.rpm
+sudo yum install libcurl-devel
+sudo yum install libssl-devel
+sudo yum install libssl-dev
+sudo yum install ssl-devel
+sudo yum install libxml2-devel
+sudo R -e "install.packages('RCurl', repos='http://cran.rstudio.com')"
+sudo yum install usethis pkgdown
+sudo yum install libssl-devel
+sudo yum install libcurl4-gnutls-devel
+sudo yum install gnutls-devel
+sudo yum install openssl-devel
+sudo R -e "install.packages('devtools', repos='http://cran.rstudio.com')"
+wget https://amoebadb.org/common/downloads/Current_Release/EhistolyticaHM1IMSS/fasta/data/AmoebaDB-61_EhistolyticaHM1IMSS_Genome.fasta
+wget https://amoebadb.org/common/downloads/Current_Release/EhistolyticaHM1IMSS/gff/data/AmoebaDB-61_EhistolyticaHM1IMSS.gff
+wget https://amoebadb.org/common/downloads/Current_Release/EhistolyticaHM1IMSS/gaf/AmoebaDB-61_EhistolyticaHM1IMSS_GO.gaf
+wget https://amoebadb.org/common/downloads/Current_Release/EhistolyticaHM1IMSS/fasta/data/AmoebaDB-61_EhistolyticaHM1IMSS_AnnotatedTranscripts.fasta
+ln -s AmoebaDB-61_EhistolyticaHM1IMSS_Genome.fasta ref.fa
+ls
+hisat2-build ref.fa ref
+sudo adduser rstudio
+sudo usermod -aG wheel rstudio
+sudo passwd rstudio
+sudo yum install freetype-devel libpng-devel libtiff-devel libjpeg-turbo-devel
+sudo R -e "install.packages('devtools', repos='http://cran.rstudio.com')"
+sudo R -e "install.packages('tidyverse', repos = 'http://cran.us.r-project.org')"
+sudo R -e "install.packages('plotly', repos = 'http://cran.us.r-project.org')"
+sudo R -e "install.packages('BiocManager', repos = 'http://cran.us.r-project.org')"
+sudo R -e "install.packages('https://cran.r-project.org/src/contrib/Archive/locfit/locfit_1.5-9.4.tar.gz', repos=NULL, type='source')"
+sudo R -e "BiocManager::install('sva')"
+sudo R -e "BiocManager::install('ballgown')"
+
